@@ -8,7 +8,7 @@ Core daemon thread notes are outlined below:
   Every thread you create can be flagged as a 'daemon' thread.  The significance of this flag is that the entire
   python program will exit when only daemon threads are left alive.
   
-  You an actually call .join() on a daemon thread as outlined below; but it is not really advised.  Most instances you 
+  You can actually call .join() on a daemon thread as outlined below; but it is not really advised.  Most instances you 
   are doing this, chances are you want a non daemon thread.
   
   Typically any well designed daemon thread is designed to run as long as the program runs and calling .join() on it
