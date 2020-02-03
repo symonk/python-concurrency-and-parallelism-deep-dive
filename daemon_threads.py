@@ -2,6 +2,30 @@ import time
 from threading import Thread
 
 
+"""
+Core daemon thread notes are outlined below:
+
+  Every thread you create can be flagged as a 'daemon' thread.  The significance of this flag is that the entire
+  python program will exit when only daemon threads are left alive.
+  
+  You an actually call .join() on a daemon thread as outlined below; but it is not really advised.  Most instances you 
+  are doing this, chances are you want a non daemon thread.
+  
+  Typically any well designed daemon thread is designed to run as long as the program runs and calling .join() on it
+  would imply (if it is well designed) that it would block until the daemon thread ends (which in this instance is likely
+  never)
+  
+  Thread objects only check that the daemon= flag is not None, and None is the default behaviour.
+  
+  Threading daemon state is inherited from the starting thread, so starting another thread on a daemon thread will
+  automatically create another daemon thread.
+  
+  All threads created (with default behaviour) from the main thread are ofcourse non daemon threads
+  
+  Java style accessors exist such as setDaemon() and isDaemon() but you will likely never be using those!
+"""
+
+
 def blocks_main_thread_for_10_seconds():
     """
     Setting the daemon as False forces the main thread to have to wait (blocked-by) the deamon thread running.
