@@ -3,13 +3,13 @@ from threading import Timer
 
 """
 threading.Timer is a subclass of Thread itself.  In simple terms it permits delaying the thread execution by
-a number of seconds prior to executable the Threads target.
+a number of seconds prior to executing the Threads target.
 
 args:
     interval (float)
-    function (callable function to be executed)
-    args (Optional iterable[Any])
-    kwargs (Optional Mapping[str, Any]
+    function (callable function to be executed as part of the timers run() invocation)
+    args (Optional iterable[Any] or empty list if not provided)
+    kwargs (Optional Mapping[str, Any] or empty dictionary if not provided)
     
 Timers use a threading.Event under the hood to control the finished waiting state.  When instantiated each
 Timer instances creates an Event instance which it tracks internally through the self.finished instance attr.
